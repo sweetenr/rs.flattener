@@ -1,19 +1,17 @@
-Page Flattener is a simple tool that helps when building flat html pages. I generally use it when a client absolutely HAS to have their deliverable as static HTML pages. and want to avoid the tedium of 
+Page Flattener is a simple php tool that converts php pages to static html pages. I generally use it when a client absolutely HAS to have their deliverable as static HTML pages, and when there are generally many rounds of text revisions.
 
-In the case where that copy is in the header, and you've got 30 or more
+In the case where copy is in the header, and you've got 30 or more
 pages, you'll have to make the same update 30 times and hope you don't 
 make an error. Or do a search against the whole project and validate
 the results of what should be a simple find/replace. Also not ideal.
 
 With Page Flattener, you build out pages in PHP using simple includes 
-to reference common page elements, and then automatically spit out the 
+to reference common, re-used page elements, and then automatically spit out the 
 html files. When you need to make a copy change in the header, you simply 
 update the file containing the header markup, flatten the project, and all 
 your html files are updated instantly.
 
-When you're ready to ZIP up the files for the client, you should re-format
-the HTML. Any good text editor will do this automatically. I know that
-Eclipse/Aptana and Komodo both have a reformat function.
+When you're ready to ZIP up the files for the client, just click the "Zip it up" button, and a zip will be automatically generated with a date and time stamp for you.
 
 
 
