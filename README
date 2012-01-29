@@ -61,7 +61,7 @@ NOT converted to html pages.
 4. Flatten
 When you're ready to generate the HTML files, navigate your browser to:
 
-http://localhost/checkedOutFolder
+http://localhost/rs.flattener
 
 If you've followed the folder structure above, your project should appear in the
 project drop down box on the left. Click the "flatten !" button and the pages will
