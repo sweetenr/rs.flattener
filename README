@@ -1,1 +1,136 @@
-Hello
+Page Flattener is a simple tool that helps when building flat html
+pages. I generally use it when building a Pharmaceutical project,
+where there are often many copy changes that happen across many pages.
+In the case where that copy is in the header, and you've got 30 or more
+pages, you'll have to make the same update 30 times and hope you don't 
+make an error. Or do a search against the whole project and validate
+the results of what should be a simple find/replace. Also not ideal.
+
+With Page Flattener, you build out pages in PHP using simple includes 
+to reference common page elements, and then automatically spit out the 
+html files. When you need to make a copy change in the header, you simply 
+update the file containing the header markup, flatten the project, and all 
+your html files are updated instantly.
+
+When you're ready to ZIP up the files for the client, you should re-format
+the HTML. Any good text editor will do this automatically. I know that
+Eclipse/Aptana and Komodo both have a reformat function.
+
+
+
+USAGE
+
+1. Check out 
+
+http://icontfs.iconnicholson.com:8100/svn/Learning/trunk/tools/flattener
+
+Note that the flattener will ONLY scan folders that are in the same directory as itself.
+So if you're projects are in Xampp/htdocs, flattener should be checked out there.
+
+
+
+2. Project structure
+
+Page Flattener requires your project to have a folder called 'php' with a blank 
+file named .flats in it. For example:
+
+/myProject
+	/assets
+		/other
+		/stuff
+		/here
+	/php
+		.flats
+		/tpl -> this could be named anything, as long as your include statements can find it
+
+The 'php' folder must be in the main project dir (not assets/php). 
+
+
+3. Building
+
+To start building pages, start making .php files in the 'php' folder. Something
+like index.php. Any pages that are found in the main 'php' folder will be transformed 
+to html files in the main project directory. If you DON'T want a .php file ot be converted
+to an html page, don't put it in the main 'php' folder.
+
+For common elements across multiple pages (header, footer, whatever), 
+make a sub-folderini the 'php' folder, name it something like tpl. Files in sub-folders are 
+NOT converted to html pages.
+
+
+4. Flatten
+When you're ready to generate the HTML files, navigate your browser to:
+
+http://localhost/checkedOutFolder
+
+If you've followed the folder structure above, your project should appear in the
+project drop down box on the left. Click the "flatten !" button and the pages will
+appear in the pages pane.
+
+That's basically it.
+
+
+
+PHP example:
+
+<?php
+
+$page_header = "";
+$page_title="BARACLUDE (entecavir) - Taking BARACLUDE&reg; (entecavir)";
+$site_metta = "Learn why BARACLUDE is an effective chronic hepatitis B treatment option."; 
+
+include('tpl/header.php'); 
+?>
+<div id="pallet">
+	<div id="header">
+		<?php include('tpl/topNav.php'); ?>
+		<div id="hero">
+			<div id="headline" >
+				<h1 id="SectionHeader"><span class="quote-open"></span>My doctor says that BARACLUDE may improve the condition of my liver. <span class="quote-close"></span></h1>
+				<p>It is not known whether BARACLUDE will reduce your chances of getting liver cancer or liver damage (cirrhosis), which may be caused by chronic HBV infection.</p>
+				 <p>Please see Indication and important safety information below.</p>
+				<p class="disclaimer">*Actor portrayal. Not actual patient quote.</p>
+					 
+			</div>
+		</div>
+	</div> 
+	
+	<div id="columns">
+		<?php include('tpl/leftNavB.php');?>
+		<div id="mainColumn">
+		
+	 <div id="content">
+			<div id="page_header">
+				<h2>Thank you</h2></div>
+			<div id="pageSubTitle">Thank you for signing up to receive more information about BARACLUDE&reg; (entecavir).</div>
+			<div id="contentBody" >
+			<p>Whether you're living with chronic hepatitis B or are caring for someone who has it, understanding and managing this condition is vital.</p>
+			<p><strong><a href="about-chronic-hepatitis.html">Learn more about managing your chronic hepatitis B.</a></strong></p>
+
+
+
+			</div>
+		
+		</div>
+		 </div> 
+				<div id="rightColumn"> 
+				<br><br><br>
+			<div id="downloaddisplay"><a href="downloads.html"><img src="assets/img/downloadPatientInfo.jpg"></a></div>
+			 </div>
+		
+
+
+	</div>
+	
+	
+	  
+	<div id="ISI"><a name="isi">&nbsp;</a> 
+	</div>
+	
+	</div> 
+  <?php 
+  
+  include('tpl/footer.php'); 
+?>
+
+
