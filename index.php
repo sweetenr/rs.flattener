@@ -2,16 +2,15 @@
 $host  = $_SERVER['SERVER_NAME'];
 include('inc/vars.php');
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<title>page flattener</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/fancybox/jquery.fancybox-1.3.4.css">
 	</head>
 	<body>
-		<header id="top">
+		<div id="top">
 			<div class="wrap">
 				<div id="header">
 					<div id="rtHead">
@@ -20,9 +19,9 @@ include('inc/vars.php');
 					</div>
 				</div>				
 			</div>
-		</header>
+		</div>
 		
-		<section class="wrap">
+		<div class="wrap">
 			<div id="contPane" class="sect">
 				<div class="boxPane">
 					<h4>Project</h4>
@@ -66,21 +65,9 @@ include('inc/vars.php');
 				</div>
 			</div>
 			
-		</section>
-<div style="display: none;">
-	<form method="post" action="#" id="emailForm">
-		<h4>Email <span id="zipName">[zip name]</span> To Someone</h4>
-		<input type="hidden" name="zip" id="zip" />
-		<input type="hidden" name="dir" id="dirSend" />
-		<input name="myname" title="First Last" id="myname" type="text" placeholder="Your Name" pattern="^[a-zA-Z ]+[a-zA-Z]$" required="required" />
-		<input name="myemail" id="myemail" type="email" placeholder="Your Email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required="required" />
-		<input name="to" title="To send to multiple emails, separate emails with a comma" id="toemail" type="email" multiple="multiple" placeholder="To Email(s)" required="required" />
-		<input type="submit" value="Send File" />
-	</form>
-</div>
-<script type="text/javascript" src="js/jq6.js"></script>
-<script type="text/javascript" src="js/jquery.easing-1.3.pack.js"></script>
-<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+		</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 	</body>
 </html>

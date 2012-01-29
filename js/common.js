@@ -13,20 +13,7 @@ window.onload = function(){
 		$('body').css('background', "#ccc");
 		$(this).text('( Warp Mode )');
 	});
-	
-	$('#emailForm').submit( function(e){
-		var data= $(this).serialize();
-		$.ajax({
-			url: 'inc/sendZip.php',
-			type: 'post',
-			data: data,
-			dataType: 'json',
-			success: function(json){
-				
-			}
-		});
-		return false;
-	});
+
 }
 
 
@@ -75,11 +62,10 @@ S= {
 							if(item.type == 'html'){
 								$('#fileList').append('<a target="_blank" href="'+ item.path +'">' + item.file + '</a>');
 							}else if(item.type == 'zip'){
-								$('#zipList').append('<a class="emailBubble" href="#emailForm">' + item.file + '</a>');
+								$('#zipList').append('<a target="_blank" href="mailto:Enter Email Here?subject='+ item.file +'&body='+item.path+'">' + item.file + '</a>');
 							}
 							
 						});
-						$('.emailBubble').click(S.injectVals).fancybox(overlayOpts);
 					}
 			}	
 		});
@@ -100,20 +86,13 @@ S= {
 						$('#zipList').empty();
 						$.each(data, function(i, item){
 							if(item.type == 'zip'){
-								//var link = '<a href="mailto:Enter Email?subject='+item.file+'&body=<a href="'+item.path+'">'+item.file+'</a>"'
-								$('#zipList').append('<a class="emailBubble" href="#emailForm">' + item.file + '</a>');
+								$('#zipList').append('<a target="_blank" href="mailto:Enter Email Here?subject='+ item.file +'&body='+item.path+'">' + item.file + '</a>');
 							}
 							
 						});
-						$('.emailBubble').click(S.injectVals).fancybox(overlayOpts);
 					}
 			}	
 		});
-	},
-	injectVals: function(){
-		$('#dirSend').val($('#dir').val());
-		$('#zip').val($(this).html());
-		$('#zipName').html($(this).html());
 	},
 	zipit: function(){
 		var proj = $('#dir').val();
@@ -138,8 +117,4 @@ S= {
 	unix_tstamp: function(){
 		return parseInt(new Date().getTime().toString().substring(0, 10))
 	}
-}
-
-var overlayOpts = {
-		//onStart: S.injectVals
 }

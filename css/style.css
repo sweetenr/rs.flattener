@@ -1,19 +1,12 @@
 body {	background: #ccc;	font-family: Arial, Helvetica, sans-serif;	font-size: 12px;	font-weight: bold; color: #ff0549;	margin: 0; }
-
 a {color: #ff0549; text-decoration: none;}
 a:hover {color: #000; }
-
 label { font-size: 10px;}
 hr { height: 0; border-top: 1px solid #ccc; margin: 0 0 12px;}
-
 input, label, select { cursor: pointer;}
-select { margin: 0 0 18px 0; width: 200px; padding: 4px; font-weight: bold; text-align: center;}
-
 #top {float: left; width: 100%; font-weight: bold; border-bottom: 3px solid #999;}
-
 .wrap {width: 950px; margin: 0 auto;}
 .ar { color: #ff0080;}
-
 /* ------------------------------- HEADER STYLES --------------------------------------- */
 #logo { font-size: 50px; line-height: 39px; padding: 14px 0 0; float: left;}
 #warp { float: right;}
@@ -46,7 +39,7 @@ input:hover {
 	background: -o-linear-gradient(#e6e7e8, #ffffff);
 	background: linear-gradient(#e6e7e8, #ffffff);
 }
-
+select { margin: 0 0 18px 0; width: 200px; padding: 4px; font-weight: bold; text-align: center;}
 .listBox { font-size: 11px; border: 1px solid #999; float: left; padding: 12px; width: 680px;  background: #eee; overflow: auto;
 	-moz-column-count: 3;
 	-moz-column-gap: 20px;
