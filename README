@@ -1,6 +1,5 @@
-Page Flattener is a simple tool that helps when building flat html
-pages. I generally use it when building a Pharmaceutical project,
-where there are often many copy changes that happen across many pages.
+Page Flattener is a simple tool that helps when building flat html pages. I generally use it when a client absolutely HAS to have their deliverable as static HTML pages. and want to avoid the tedium of 
+
 In the case where that copy is in the header, and you've got 30 or more
 pages, you'll have to make the same update 30 times and hope you don't 
 make an error. Or do a search against the whole project and validate
@@ -20,9 +19,7 @@ Eclipse/Aptana and Komodo both have a reformat function.
 
 USAGE
 
-1. Check out 
-
-http://icontfs.iconnicholson.com:8100/svn/Learning/trunk/tools/flattener
+1. Clone/download this project
 
 Note that the flattener will ONLY scan folders that are in the same directory as itself.
 So if you're projects are in Xampp/htdocs, flattener should be checked out there.
@@ -41,17 +38,22 @@ file named .flats in it. For example:
 		/here
 	/php
 		.flats
-		/tpl -> this could be named anything, as long as your include statements can find it
+		/tpl -> this could also be named includes, as long as your include statements can find it
+			.noflats -> put an empty file called .noflats in any sub-folder you want the flatener to skip..
+		/sub-directory (you may have any number of sub-folders)
+		
 
-The 'php' folder must be in the main project dir (not assets/php). 
+- The 'php' folder must be in the main project dir (not assets/php). 
+- php files in the main /php folder wil be replicated as .html files in the main project directory
+- sub-folders will be replicated in the main directory, with any php files replicated as html files therein.
+
 
 
 3. Building
 
 To start building pages, start making .php files in the 'php' folder. Something
 like index.php. Any pages that are found in the main 'php' folder will be transformed 
-to html files in the main project directory. If you DON'T want a .php file ot be converted
-to an html page, don't put it in the main 'php' folder.
+to html files in the main project directory.
 
 For common elements across multiple pages (header, footer, whatever), 
 make a sub-folderini the 'php' folder, name it something like tpl. Files in sub-folders are 
@@ -76,8 +78,8 @@ PHP example:
 <?php
 
 $page_header = "";
-$page_title="BARACLUDE (entecavir) - Taking BARACLUDE&reg; (entecavir)";
-$site_metta = "Learn why BARACLUDE is an effective chronic hepatitis B treatment option."; 
+$page_title="Some Page title or something";
+$site_metta = "Some meta tag text"; 
 
 include('tpl/header.php'); 
 ?>
@@ -85,13 +87,7 @@ include('tpl/header.php');
 	<div id="header">
 		<?php include('tpl/topNav.php'); ?>
 		<div id="hero">
-			<div id="headline" >
-				<h1 id="SectionHeader"><span class="quote-open"></span>My doctor says that BARACLUDE may improve the condition of my liver. <span class="quote-close"></span></h1>
-				<p>It is not known whether BARACLUDE will reduce your chances of getting liver cancer or liver damage (cirrhosis), which may be caused by chronic HBV infection.</p>
-				 <p>Please see Indication and important safety information below.</p>
-				<p class="disclaimer">*Actor portrayal. Not actual patient quote.</p>
-					 
-			</div>
+			More html and whatnot
 		</div>
 	</div> 
 	
@@ -99,37 +95,12 @@ include('tpl/header.php');
 		<?php include('tpl/leftNavB.php');?>
 		<div id="mainColumn">
 		
-	 <div id="content">
-			<div id="page_header">
-				<h2>Thank you</h2></div>
-			<div id="pageSubTitle">Thank you for signing up to receive more information about BARACLUDE&reg; (entecavir).</div>
-			<div id="contentBody" >
-			<p>Whether you're living with chronic hepatitis B or are caring for someone who has it, understanding and managing this condition is vital.</p>
-			<p><strong><a href="about-chronic-hepatitis.html">Learn more about managing your chronic hepatitis B.</a></strong></p>
-
-
-
-			</div>
 		
 		</div>
-		 </div> 
-				<div id="rightColumn"> 
-				<br><br><br>
-			<div id="downloaddisplay"><a href="downloads.html"><img src="assets/img/downloadPatientInfo.jpg"></a></div>
-			 </div>
-		
-
-
-	</div>
-	
-	
-	  
-	<div id="ISI"><a name="isi">&nbsp;</a> 
-	</div>
-	
 	</div> 
-  <?php 
-  
+
+</div> 
+<?php 
   include('tpl/footer.php'); 
 ?>
 
