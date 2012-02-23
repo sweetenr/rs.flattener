@@ -28,7 +28,8 @@ include('inc/vars.php');
 					<div id="options" class="round">
 						<div>Select directory</div>
 						<?php
-							if($parentDir){
+                        /** @var $parentDir TYPE_NAME */
+                        if($parentDir){
 								echo '<select id="dir" name="dir">';
 								foreach($parentDir as $folder){
 									$fileinfo = pathinfo($folder);
@@ -67,7 +68,7 @@ include('inc/vars.php');
 			
 		</div>
 
-<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jq6.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 	</body>
 </html>
